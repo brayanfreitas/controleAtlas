@@ -10,6 +10,10 @@ private String nomeMarca;
 public Marca(){
 	
 }
+public Marca(int idMarca) {
+	this.idMarca = idMarca;
+}
+
 
 public Marca(int idMarca, String nomeMarca) {
 	this.idMarca = idMarca;

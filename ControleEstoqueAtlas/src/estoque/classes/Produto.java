@@ -22,6 +22,9 @@ public class Produto {
 		this.marca = marca;
 	}
 	
+	public Produto(Marca m) {
+		this.marca=m;
+	}
 	
 	public int getIdProduto() {
 		return idProduto;

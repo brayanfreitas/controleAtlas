@@ -7,14 +7,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import estoque.classes.Marca;
 import estoque.classes.Produto;
+
 
 public class ProdutoDAO {
 
 	private Connection conexao;
+	private MarcaDAO marcaDAO;
 
-	public ProdutoDAO(Connection conexao) {
+	public ProdutoDAO(Connection conexao, MarcaDAO marcaDAO) {
 		this.conexao = conexao;
+		this.marcaDAO = marcaDAO;
 	}
 
 	public boolean inserir(Produto produto) {
@@ -92,7 +96,7 @@ public class ProdutoDAO {
 		return false;
 	}
 
-	public ArrayList<Produto> Listar() {
+	public ArrayList<Produto> listar() {
 		ArrayList<Produto> produtos = new ArrayList<Produto>();
 		String sql = "SELECT * FROM tb_produto";
 
@@ -106,14 +110,26 @@ public class ProdutoDAO {
 
 			// next() verifica se tem algum dado (proximo) dentro do ResultSet
 			while (rs.next()) {
+				Marca m = new Marca(); 
+				
+				m.setIdMarca(rs.getInt("id_marca"));
+
+				
 				Produto p = new Produto();
 				p.setIdProduto(rs.getInt("id_produto"));
 				p.setNomeProduto(rs.getString("nomeProduto"));
 				p.setPreco(rs.getDouble("preco"));
 				p.setQtdestoque(rs.getDouble("qntProduto"));
 				p.setUndMed(rs.getString("undMedida"));
-				//p.getMarca().setIdMarca(rs.getInt("id_marca")); //dando erro aqui!
-				//p.getMarca().setNomeMarca("MARCA 1"); // depois fazer o MarcaDAO e substituir aqui
+				
+				ArrayList<Marca> lista = marcaDAO.listar();
+				for (int i = 0; i < lista.size(); i++) {
+					if (lista.get(i).getIdMarca() == m.getIdMarca()) {
+						p.setMarca(lista.get(i));
+						break;
+					}
+				}
+				
 				produtos.add(p);
 
 			}

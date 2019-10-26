@@ -17,19 +17,14 @@ public class MarcaDAO {
 		this.conexao = conexao;
 	}
 	
-	public ArrayList<Marca> listaCidade() {
+	public ArrayList<Marca> listar() {
 		ArrayList<Marca> marcas = new ArrayList<Marca>();
 		String sql = "SELECT * FROM tb_marca";
 
 		try {
 			PreparedStatement stmt = conexao.prepareStatement(sql);
-			// ResultSet armazena os registros que vieram do BD
 			ResultSet rs = stmt.executeQuery();
 
-			// extraindo os registros do ResultSet e criando os objetos apartir
-			// destes.
-
-			// next() verifica se tem algum dado (proximo) dentro do ResultSet
 			while (rs.next()) {
 				Marca m = new Marca();
 				m.setIdMarca(rs.getInt("id_marca"));
