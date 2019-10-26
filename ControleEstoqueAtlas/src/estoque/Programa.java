@@ -17,7 +17,7 @@ public class Programa {
 		ProdutoDAO pDAO = new ProdutoDAO(conexao);
 		
 		//TESTANDO BD //
-		Produto p = new Produto(6, "BOLA", 6.00, 20, "UND", new Marca(1, "Marca"));
+		Produto p = new Produto(7, "BOLA", 6.00, 20, "UND", new Marca(1, "Marca"));
 		
 		ArrayList<Produto> produtos = pDAO.Listar();
 		for (int i=0; i< produtos.size(); i++) {
