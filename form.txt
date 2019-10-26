@@ -1,0 +1,20 @@
+<form method="post" action="index.php">
+            <label>
+                nome:
+                <input type="text" name="nome"/>
+            </label>
+            <label>
+                email:
+                <input type="email" name="email"/>
+            </label>
+            <label>
+                telefone:
+                <input type="text" name="telefone"/>
+            </label>
+            <label>
+                mensagem:
+                <input type="text" name="mensagem"/>
+            </label>
+            <input type = "submit" value = "Adicionar contato"/>
+            <a href="tabela.php">Clique aqui para ver os contatos</a>
+        </form>
