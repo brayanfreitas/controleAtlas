@@ -3,6 +3,7 @@ package estoque.controle;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import estoque.janelas.TelaGrafica;
 import estoque.bd.ProdutoDAO;
 import estoque.classes.Marca;
 import estoque.classes.Produto;
@@ -10,6 +11,8 @@ import estoque.classes.Produto;
 public class Sistema {
 
 	private static ProdutoDAO pDAO;
+	private static int proxPorduto=0;
+	private TelaGrafica tela = new TelaGrafica();
 
 	public Sistema(Connection conexao) {
 		pDAO = new ProdutoDAO(conexao);
