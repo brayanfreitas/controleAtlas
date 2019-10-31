@@ -15,6 +15,10 @@ public Usuario(int idLogin, String nomeUsuario, String senha, String login) {
 	
 }
 
+public Usuario () {
+	
+}
+
 
 public int getIdLogin() {
 	return idLogin;
