@@ -1,104 +1,104 @@
 package estoque.janelas;
 
-import java.awt.EventQueue;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 
-import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
-import javax.swing.JComboBox;
 import javax.swing.JTextField;
+import javax.swing.JComboBox;
 
-public class JanelaInserirProduto {
-
-	private JFrame frmInserirProduto;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+public class JanelaInserirProduto extends JDialog {
+	private JTextField tfNome;
+	private JTextField tfPreco;
+	private JTextField tfQuantidade;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					JanelaInserirProduto window = new JanelaInserirProduto();
-					window.frmInserirProduto.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		try {
+			JanelaInserirProduto dialog = new JanelaInserirProduto();
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
-	 * Create the application.
+	 * Create the dialog.
 	 */
 	public JanelaInserirProduto() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frmInserirProduto = new JFrame();
-		frmInserirProduto.setTitle("Inserir Produto");
-		frmInserirProduto.setBounds(100, 100, 473, 314);
-		frmInserirProduto.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmInserirProduto.getContentPane().setLayout(null);
+		setTitle("Inserir Produto");
+		setBounds(100, 100, 527, 336);
+		getContentPane().setLayout(null);
 		
 		JLabel lblInserirProduto = new JLabel("Inserir Produto");
+		lblInserirProduto.setBounds(180, 36, 116, 14);
 		lblInserirProduto.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblInserirProduto.setBounds(175, 25, 107, 42);
-		frmInserirProduto.getContentPane().add(lblInserirProduto);
+		getContentPane().add(lblInserirProduto);
 		
 		JLabel lblNome = new JLabel("Nome:");
+		lblNome.setBounds(30, 90, 46, 14);
 		lblNome.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNome.setBounds(29, 92, 46, 14);
-		frmInserirProduto.getContentPane().add(lblNome);
+		getContentPane().add(lblNome);
 		
-		JLabel lblPreo = new JLabel("Pre\u00E7o:");
-		lblPreo.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblPreo.setBounds(29, 145, 46, 14);
-		frmInserirProduto.getContentPane().add(lblPreo);
-		
-		JLabel lblQuantidade = new JLabel("Quantidade:");
-		lblQuantidade.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblQuantidade.setBounds(29, 203, 85, 14);
-		frmInserirProduto.getContentPane().add(lblQuantidade);
-		
-		JLabel lblUnidadeDeMedida = new JLabel("Unidade de Medida:");
-		lblUnidadeDeMedida.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblUnidadeDeMedida.setBounds(243, 145, 148, 14);
-		frmInserirProduto.getContentPane().add(lblUnidadeDeMedida);
-		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(313, 92, 125, 18);
-		frmInserirProduto.getContentPane().add(comboBox);
+		tfNome = new JTextField();
+		tfNome.setBounds(88, 89, 140, 20);
+		getContentPane().add(tfNome);
+		tfNome.setColumns(10);
 		
 		JLabel lblMarca = new JLabel("Marca:");
-		lblMarca.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblMarca.setBounds(243, 92, 46, 14);
-		frmInserirProduto.getContentPane().add(lblMarca);
+		lblMarca.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblMarca.setBounds(264, 92, 46, 14);
+		getContentPane().add(lblMarca);
 		
-		textField = new JTextField();
-		textField.setBounds(85, 144, 126, 20);
-		frmInserirProduto.getContentPane().add(textField);
-		textField.setColumns(10);
+		JComboBox BoxMarca = new JComboBox();
+		BoxMarca.setBounds(315, 89, 100, 20);
+		getContentPane().add(BoxMarca);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(85, 91, 126, 20);
-		frmInserirProduto.getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		JLabel lblPreco = new JLabel("Pre\u00E7o:");
+		lblPreco.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblPreco.setBounds(30, 143, 46, 14);
+		getContentPane().add(lblPreco);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(114, 202, 97, 20);
-		frmInserirProduto.getContentPane().add(textField_2);
-		textField_2.setColumns(10);
+		tfPreco = new JTextField();
+		tfPreco.setBounds(88, 142, 110, 20);
+		getContentPane().add(tfPreco);
+		tfPreco.setColumns(10);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(384, 144, 54, 20);
-		frmInserirProduto.getContentPane().add(comboBox_1);
+		JLabel lblUnidadeDeMedida = new JLabel("Unidade de Medida:");
+		lblUnidadeDeMedida.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblUnidadeDeMedida.setBounds(264, 142, 119, 20);
+		getContentPane().add(lblUnidadeDeMedida);
+		
+		JComboBox BoxUnMedida = new JComboBox();
+		BoxUnMedida.setBounds(395, 142, 44, 20);
+		getContentPane().add(BoxUnMedida);
+		
+		JLabel lblQuantidade = new JLabel("Quantidade:");
+		lblQuantidade.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblQuantidade.setBounds(30, 205, 86, 14);
+		getContentPane().add(lblQuantidade);
+		
+		tfQuantidade = new JTextField();
+		tfQuantidade.setBounds(126, 204, 72, 20);
+		getContentPane().add(tfQuantidade);
+		tfQuantidade.setColumns(10);
+		
+		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnCancelar.setBounds(296, 263, 89, 23);
+		getContentPane().add(btnCancelar);
+		
+		JButton btnConfirmar = new JButton("Confirmar");
+		btnConfirmar.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnConfirmar.setBounds(395, 263, 89, 23);
+		getContentPane().add(btnConfirmar);
 	}
 }
