@@ -17,6 +17,15 @@ import java.awt.event.ActionListener;
 public class JanelaMenu implements ActionListener {
 	private JDialog frmMenu;
 	private JButton btnSair;
+	private JLabel lblMenu;
+	private JLabel lblProduto;
+	private JButton btnInserir;
+	private JButton btnAlterar;
+	private JButton btnListar;
+	private JButton btnExcluir;
+	private JLabel lblEstoque;
+	private JButton btnNovo;
+	private JButton btnBaixa;
 
 	private final JPanel contentPanel = new JPanel();
 
@@ -52,51 +61,60 @@ public class JanelaMenu implements ActionListener {
 		desktopPane.setBounds(198, 64, 1, 186);
 		contentPanel.add(desktopPane);
 		
-		JLabel lblMenu = new JLabel("Menu");
+		lblMenu = new JLabel("Menu");
 		lblMenu.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblMenu.setBounds(175, 23, 46, 14);
 		contentPanel.add(lblMenu);
 		
-		JLabel lblProduto = new JLabel("Produto");
+		lblProduto = new JLabel("Produto");
 		lblProduto.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblProduto.setBounds(59, 49, 64, 14);
 		contentPanel.add(lblProduto);
 		
-		JButton btnInserir = new JButton("Inserir");
+		btnInserir = new JButton("Inserir");
 		btnInserir.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnInserir.setBounds(45, 91, 89, 23);
 		contentPanel.add(btnInserir);
 		
-		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar = new JButton("Alterar");
 		btnAlterar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnAlterar.setBounds(45, 137, 89, 23);
 		contentPanel.add(btnAlterar);
 		
-		JButton btnListar = new JButton("Listar");
+		btnListar = new JButton("Listar");
 		btnListar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnListar.setBounds(45, 185, 89, 23);
 		contentPanel.add(btnListar);
 		
-		JButton btnExcluir = new JButton("Excluir");
+		btnExcluir = new JButton("Excluir");
 		btnExcluir.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnExcluir.setBounds(45, 230, 89, 23);
 		contentPanel.add(btnExcluir);
-		
-		JLabel lblVenda = new JLabel("Venda");
-		lblVenda.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblVenda.setBounds(293, 49, 46, 14);
-		contentPanel.add(lblVenda);
-		
-		JButton btnNovaVenda = new JButton("Nova Venda");
-		btnNovaVenda.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnNovaVenda.setBounds(271, 139, 117, 23);
-		contentPanel.add(btnNovaVenda);
 		
 		btnSair = new JButton("Sair");
 		btnSair.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnSair.addActionListener(this);
 		btnSair.setBounds(335, 241, 89, 23);
 		contentPanel.add(btnSair);
+		
+		lblEstoque = new JLabel("Estoque");
+		lblEstoque.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblEstoque.setBounds(289, 49, 64, 14);
+		contentPanel.add(lblEstoque);
+		
+		btnNovo = new JButton("Novo");
+		btnNovo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnNovo.setBounds(278, 117, 89, 23);
+		contentPanel.add(btnNovo);
+		
+		btnBaixa = new JButton("Baixa");
+		btnBaixa.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnBaixa.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnBaixa.setBounds(278, 167, 89, 23);
+		contentPanel.add(btnBaixa);
 	}
 
 	@Override
