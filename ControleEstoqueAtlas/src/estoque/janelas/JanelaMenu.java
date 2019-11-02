@@ -1,6 +1,7 @@
 package estoque.janelas;
 
 import java.awt.BorderLayout;
+import java.awt.EventQueue;
 import java.awt.FlowLayout;
 
 import javax.swing.JButton;
@@ -10,8 +11,12 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class JanelaMenu extends JDialog {
+public class JanelaMenu implements ActionListener {
+	private JDialog frmMenu;
+	private JButton btnSair;
 
 	private final JPanel contentPanel = new JPanel();
 
@@ -19,23 +24,28 @@ public class JanelaMenu extends JDialog {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		try {
-			JanelaMenu dialog = new JanelaMenu();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					JanelaMenu window = new JanelaMenu();
+					window.frmMenu.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 
-	/**
-	 * Create the dialog.
-	 */
 	public JanelaMenu() {
-		setBounds(100, 100, 450, 314);
-		getContentPane().setLayout(new BorderLayout());
+		initialize();
+	}
+	
+	public void initialize() {
+		frmMenu = new JDialog();
+		frmMenu.setBounds(100, 100, 450, 314);
+		frmMenu.getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		frmMenu.getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		
 		JDesktopPane desktopPane = new JDesktopPane();
@@ -82,9 +92,20 @@ public class JanelaMenu extends JDialog {
 		btnNovaVenda.setBounds(271, 139, 117, 23);
 		contentPanel.add(btnNovaVenda);
 		
-		JButton btnSair = new JButton("Sair");
+		btnSair = new JButton("Sair");
 		btnSair.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnSair.addActionListener(this);
 		btnSair.setBounds(335, 241, 89, 23);
 		contentPanel.add(btnSair);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		Object o = e.getSource();
+		if (o == btnSair) {
+			frmMenu.dispose();
+		}
+
+		
 	}
 }
